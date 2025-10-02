@@ -4,7 +4,7 @@ app.secret_key = 'top-secret'
 
 @app.route('/')
 def index():
-    return render_template('signUp.html')
+    return redirect(url_for('signup'))
 
 @app.route('/signUp', methods=['GET', 'POST'])
 def signup():
@@ -20,7 +20,7 @@ def signup():
             return render_template('signUp.html')
         
         return render_template(
-            'signUp.html',
+            'successCreation.html',
             name = name,
             email = email,
             password = password,
