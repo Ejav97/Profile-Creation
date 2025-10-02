@@ -6,7 +6,7 @@ body{
     font-size: 1.2em;
     background-color: whitesmoke ;
 }
-
+/*STARTS SIGNUP HTML*/
 h2{
     text-align: center;
 }
@@ -34,4 +34,22 @@ font-weight: 500;
 button:hover{
     transform: scale(1.10);
     transition: 0.2s ease-in-out;
+}
+/* ENDS SIGNUP HTML*/
+
+/*STARTS SUCCESSCREATION HTML*/
+
+h3{
+    text-align: center;
+}
+
+#creation_overview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #833AB4;
+    background: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    margin-top: 50px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
 }
