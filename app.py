@@ -13,12 +13,12 @@ def signup():
         email = request.form.get('email', '').strip()
         password = request.form.get('password', '').strip()
         acctype = request.form.get('acctype', '').strip()
-        notifications = request.form.get('notificatons') == "yes"
-
+        notifications = request.form.get('notifications') == "yes"
+        
         if not name or not email or not password or not acctype:
             error = "Please fill in all the required fields."
-            return render_template('signUp.html')
-        
+            return render_template('signUp.html', error=error)
+
         return render_template(
             'successCreation.html',
             name = name,
