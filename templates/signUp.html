@@ -2,6 +2,10 @@
 
 {% block content %}
 
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}
+
 <h2>Account Creation</h2>
 
 <form id="form" method="POST">
@@ -25,15 +29,15 @@
         <label for="acctype">Account Type *:</label>
         <select id="acctype" name="acctype" required>
             <option value=""></option>
-            <option value="">Free</option>
-            <option value="">Pro</option>
-            <option value="">Premium</option>
+            <option value="Free">Free</option>
+            <option value="Pro">Pro</option>
+            <option value="Premium">Premium</option>
         </select>
     </div>
 
     <div>
         <label for="notifications">Receive Notifications</label>
-        <input type="checkbox" name="checkbox" name="checkbox" value="yes">
+        <input type="checkbox" name="checkbox" value="yes">
     </div>
     
     <div>
