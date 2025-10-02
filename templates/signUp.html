@@ -24,6 +24,7 @@
     <div>
         <label for="acctype">Account Type *:</label>
         <select id="acctype" name="acctype" required>
+            <option value=""></option>
             <option value="">Free</option>
             <option value="">Pro</option>
             <option value="">Premium</option>
@@ -35,6 +36,9 @@
         <input type="checkbox" name="checkbox" name="checkbox" value="yes">
     </div>
     
+    <div>
+        <button type="submit">Create Account</button>
+    </div>
 </form>
 
 {% endblock  %}
