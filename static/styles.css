@@ -90,4 +90,5 @@ h3{
     box-shadow: 0 2px 8px white;
     transform: scale(1.05);
     transition: 0.4s ease-in-out;
+    cursor: pointer;
 }
