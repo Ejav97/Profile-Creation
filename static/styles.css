@@ -4,7 +4,8 @@ body{
     margin: 0 auto;
     padding: 20px;
     font-size: 1.2em;
-    background-color: whitesmoke ;
+    background-color: rgba(0, 0, 0, 0.90);
+    color: white;
 }
 /*STARTS SIGNUP HTML*/
 h2{
@@ -53,4 +54,40 @@ h3{
     padding: 10px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.70);
+}
+/*ENDS SUCCESS CREATION HTML*/
+
+/*STARTS ACCOUNT HTML*/
+
+.left-align{
+    width: 100vw; 
+    margin-left: calc(-50vw + 300px); 
+    padding-left: 20px; 
+    box-sizing: border-box;
+}
+
+.movie{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 10px;
+    background: hsla(0, 100%, 2%, 0.20);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px black;
+}
+.movie img{
+    border-radius: 12px 12px 0 0;
+}
+
+.section{
+    text-align: left;
+}
+.movie h4{
+    text-align: center;
+}
+
+.movie:hover{
+    box-shadow: 0 2px 8px white;
+    transform: scale(1.05);
+    transition: 0.4s ease-in-out;
 }
