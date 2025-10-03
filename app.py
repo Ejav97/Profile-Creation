@@ -29,3 +29,11 @@ def signup():
         )
     
     return render_template('signUp.html')
+
+@app.route('/account', methods=['GET', 'POST'])
+def account():
+   
+   if request.method == 'POST':
+    return redirect(url_for('account')) 
+    
+   return render_template('account.html')
