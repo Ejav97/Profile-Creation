@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% block title %}{{super}} - Accounts Admin {% endblock  %}
+{% block content %}
+<h1>All Accounts</h1>
+<table class="table" border="1">
+    <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+        <th>acc_type</th>
+        <th>notifications</th>
+    </tr>
+    {% for account in accounts  %}
+    <tr>
+        <td>{{account.name}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.password}}</td>
+        <td>{{account.acc_type}}</td>
+        <td>{{account.notifications}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock  %}
