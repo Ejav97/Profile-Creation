@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <header>
+        <a href="/signUp" class="pages">Profile Creation</a>
+        <a href="/account" class="pages">User Acc Preview</a>
+        <a href="admin/accounts" class="pages">admin</a>
+    </header>
     {% block content %} {% endblock %}
     
 </body>
