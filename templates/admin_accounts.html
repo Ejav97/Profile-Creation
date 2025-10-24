@@ -26,7 +26,6 @@
         <td>{{ account.acc_type }}</td>
         <td>{{ 'Yes' if account.notifications else 'No' }}</td>
         <td>
-            <!-- Move the acc_type update form here -->
             <form action="{{ url_for('update_acc_type', user_id=account.id) }}" method="POST" style="display:inline;">
                 <select name="acc_type">
                     <option value="Free" {% if account.acc_type == 'Free' %}selected{% endif %}>Free</option>
