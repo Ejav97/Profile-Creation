@@ -7,6 +7,20 @@ body{
     background-color: rgba(0, 0, 0, 0.90);
     color: white;
 }
+
+/*BASE HTML BEGINS*/
+.pages{
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+.pages:hover{
+    text-decoration: underline;
+}
+/*BASE HTML ENDS*/
+
+
 /*STARTS SIGNUP HTML*/
 h2{
     text-align: center;
