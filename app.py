@@ -14,7 +14,7 @@ db =SQLAlchemy(app)
 class Account(db.Model):
    id = db.Column(db.Integer, primary_key = True)
    name = db.Column(db.String(100), nullable = False)
-   email = db.Column(db.String(100), nullable = False)
+   email = db.Column(db.String(100), nullable = False, unique=True)
    password = db.Column(db.String(100), nullable = False)
    acc_type = db.Column(db.String(10), nullable = False)
    notifications = db.Column(db.Boolean, default = False)
@@ -52,7 +52,7 @@ def signup():
            db.session.commit()
         except Exception as e:
            db.session.rollback()
-           error = "An error ocurred while saving your profile. Please try again."
+           error = "An error occurred while saving your profile. Please try again."
            return render_template('signUp.html', error = error)
 
         return render_template(
@@ -78,3 +78,34 @@ def account():
 def admin_accounts():
     accounts = Account.query.all()
     return render_template('admin_accounts.html', accounts=accounts)
+
+@app.route('/admin/delete_free_users', methods=['POST'])
+def delete_free_users():
+    try:
+        num_deleted = Account.query.filter_by(acc_type='Free').delete()
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        print(f"Error occurred while deleting free user accounts: {error}")
+        return render_template('admin_accounts.html', error=error)
+
+    return redirect(url_for('admin_accounts'))
+
+@app.route('/admin/update_acc_type/<int:user_id>', methods=['POST'])
+def update_acc_type(user_id):
+    user = Account.query.get_or_404(user_id)
+    new_type = request.form.get('acc_type', '').strip()
+
+    if not new_type:
+        return redirect(url_for('admin_accounts'))
+
+    try:
+        user.acc_type = new_type
+        db.session.commit()
+        print(f"Updated {user.email} to {new_type}")
+    except Exception as e:
+        db.session.rollback()
+        print(f"Error updating account type: {e}")
+
+    return redirect(url_for('admin_accounts'))
+ 
