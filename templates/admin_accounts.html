@@ -1,25 +1,43 @@
-
 {% extends "base.html" %}
-{% block title %}{{super}} - Accounts Admin {% endblock  %}
+
 {% block content %}
 <h1>All Accounts</h1>
+
+<form action="{{ url_for('delete_free_users') }}" method="POST" style="display:inline;"
+      onsubmit="return confirm('Delete ALL free users? This cannot be undone!')">
+    <button type="submit" class="admin_options">Delete Free Users</button>
+</form>
+
 <table class="table" border="1">
     <tr>
-        <th>name</th>
-        <th>email</th>
-        <th>password</th>
-        <th>acc_type</th>
-        <th>notifications</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Account Type</th>
+        <th>Notifications</th>
+        <th>Update Acc</th>
     </tr>
-    {% for account in accounts  %}
+
+    {% for account in accounts %}
     <tr>
-        <td>{{account.name}}</td>
-        <td>{{account.email}}</td>
-        <td>{{account.password}}</td>
-        <td>{{account.acc_type}}</td>
-        <td>{{account.notifications}}</td>
+        <td>{{ account.name }}</td>
+        <td>{{ account.email }}</td>
+        <td>{{ account.password }}</td>
+        <td>{{ account.acc_type }}</td>
+        <td>{{ 'Yes' if account.notifications else 'No' }}</td>
+        <td>
+            <!-- Move the acc_type update form here -->
+            <form action="{{ url_for('update_acc_type', user_id=account.id) }}" method="POST" style="display:inline;">
+                <select name="acc_type">
+                    <option value="Free" {% if account.acc_type == 'Free' %}selected{% endif %}>Free</option>
+                    <option value="Pro" {% if account.acc_type == 'Pro' %}selected{% endif %}>Pro</option>
+                    <option value="Premium" {% if account.acc_type == 'Premium' %}selected{% endif %}>Premium</option>
+                </select>
+                <button type="submit">Update</button>
+            </form>
+        </td>
     </tr>
     {% endfor %}
 </table>
 
-{% endblock  %}
+{% endblock %}
